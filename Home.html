@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABC High School — About Us</title>
+<style>
+  :root {
+    --primary: #3aa0d8;
+    --primary-dark: #2b86ba;
+    --navy: #1f3b57;
+    --text: #3d4a56;
+    --muted: #5b6b7a;
+    --bg: #ffffff;
+    --page-bg: #f2f8fc;
+    --line: #dbe7ef;
+    --max-width: 1200px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--page-bg);
+    color: var(--text);
+  }
+
+  /* ===== NAV BAR ===== */
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: var(--bg);
+    padding: 12px 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+    background: #e6eef4;
+  }
+
+  .logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.1;
+  }
+  .logo-text span {
+    color: var(--primary);
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 8px 14px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+
+  .nav-links a:hover {
+    background: #e6f4fb;
+    color: var(--primary-dark);
+  }
+
+  .nav-links a.active {
+    color: #fff;
+    background: var(--primary);
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .menu-toggle span {
+    width: 24px;
+    height: 3px;
+    background: var(--navy);
+    border-radius: 2px;
+    display: block;
+  }
+
+  /* ===== PAGE CONTENT - perfectly aligned ===== */
+  .page-wrap {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 48px 40px 64px;
+  }
+
+  .page-title {
+    font-size: 48px;
+    line-height: 1.1;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    margin: 0;
+  }
+  .page-title::after {
+    content: "";
+    display: block;
+    width: 72px;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--primary);
+    margin-top: 12px;
+  }
+
+  .about-section {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    margin-top: 28px;
+  }
+
+  .about-text {
+    flex: 1 1 0;
+    min-width: 0;
+    font-size: 17px;
+    line-height: 1.8;
+    font-weight: 400;
+    color: var(--text);
+  }
+
+  .about-image {
+    width: 100%;
+    max-width: 520px;
+    flex: 0 1 520px;
+    aspect-ratio: 16 / 10;
+    height: auto;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    box-shadow: 0 12px 28px rgba(31, 59, 87, 0.14);
+    display: block;
+    background: #e6eef4;
+  }
+
+  @media (max-width: 900px) {
+    .page-wrap { padding: 32px 20px 48px; }
+    .page-title { font-size: 36px; }
+    .about-section { flex-direction: column; align-items: stretch; gap: 24px; }
+    .about-image { max-width: 100%; flex-basis: auto; }
+  }
+
+  @media (max-width: 820px) {
+    .navbar { padding: 12px 20px; }
+    .menu-toggle { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      background: var(--bg);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 10px 20px 16px;
+    }
+    .nav-links.open { display: flex; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="#" class="logo">
+    <img src="https://raw.githubusercontent.com/ELURINARENDRA/School-Website/main/School_img.jpg" alt="ABC High School logo" class="logo-img">
+    <div class="logo-text">ABC <span>High School</span></div>
+  </a>
+
+  <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+
+  <ul class="nav-links">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Academics</a></li>
+    <li><a href="#">Campus Life</a></li>
+    <li><a href="#">News</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<main class="page-wrap">
+  <h1 class="page-title">About Us</h1>
+
+  <div class="about-section">
+    <p class="about-text">
+      ABC Grammar School, as it was christened at its inception, was established in 1982 as the very first
+      English-medium school in this region. Over the last 40 years, it has grown into a renowned name in the
+      field of education, and is now fondly referred to by parents, teachers, and alumni as "ABC".
+      ABC School's expansive and lush-green campus environment, spread over 5 acres of land, allows students
+      to flourish in an ambience that symbolises abundance, growth, and constant learning.
+    </p>
+    <img src="278612667_105606472132441_2591856225863751013_n.jpg" alt="ABC High School campus" class="about-image">
+  </div>
+</main>
+
+</body>
+</html>
